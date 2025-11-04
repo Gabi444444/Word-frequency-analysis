@@ -73,7 +73,6 @@ for query in buscas:
     for i in interest:
         square = i*i
         size_int += square
-    print(vectors[0],interest,vectors[len(vectors)-1])
     squares = []
     
     for vector in vectors:
@@ -110,3 +109,4 @@ for query in buscas:
                     results[i] = 90
     
             
+
