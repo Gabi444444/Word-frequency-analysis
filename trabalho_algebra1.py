@@ -105,8 +105,9 @@ for query in buscas:
                     print("similaridade irrelevante a partir daqui")
                     break
                 else:
-                    print("\n",f"{pessoas[i]}:",samples[i])
+                    print("\n",f"{pessoas[i]}:",samples[i],"\nângulo:",x)
                     results[i] = 90
     
             
+
 
