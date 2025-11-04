@@ -21,18 +21,30 @@ for string in samples:
         if word not in wordbank:
             wordbank.append(word)   
 
-tests = int(input("\nquantas procuras? "))
+custom = input("você quer fazer inputs customizados? ")
+buscas = []
 
-for i in range(tests):
+if custom == "sim":
+    tests = int(input("\nquantas procuras? "))
+    n = 0
+    while n < tests:
+        buscas.append(input("\ninsira sua query, sem pontuação: ").split())
+        n += 1
+
+else:
+    searches = open("C:/Users/User/Documents/python stuff/trabalho_algb/querries_usar.txt","r")
+    queries = searches.read().splitlines()
+    buscas = [i.split() for i in queries]
+    
+for query in buscas:
     interest = []
     temp_wordbank = [i for i in wordbank]
-    querry = input("\ninsira sua query, sem pontuação: ").split()
-    for word in querry:
+    for word in query:
         if word not in temp_wordbank:
             temp_wordbank.append(word)
     vectors = []
     
-    if len(temp_wordbank) - len(querry) == len(wordbank):
+    if len(temp_wordbank) - len(query) == len(wordbank):
         print("\nnenhuma dessas palavras está no dataset, similaridade nula")
         break
     
@@ -47,7 +59,7 @@ for i in range(tests):
             vector.append(number)
         vectors.append(vector)
     
-    alterable = querry
+    alterable = query
     
     for word in temp_wordbank:
         number = 0
@@ -91,10 +103,10 @@ for i in range(tests):
         for i,x in enumerate(results):
             if 90 - x == looks_for:
                 if 90 - x == 0:
-                    print("\nsimilaridade irrelevante a partir daqui")
+                    print("similaridade irrelevante a partir daqui")
                     break
                 else:
                     print("\n",f"{pessoas[i]}:",samples[i])
-                results.remove(x)
+                    results[i] = 90
     
             
