@@ -5,10 +5,10 @@ Created on Tue Nov  4 09:26:50 2025
 @author: User
 """
 import trabalho_algebra1_funções as sim
+from nltk.corpus import stopwords
 
 continues = True
 sample = []
-
 
 sample_size = int(input("how many samples: "))
 n = 0
@@ -16,6 +16,15 @@ n = 0
 while n < sample_size:
     sample.append(input("please type a string with no punctuation: ").split())
     n += 1
+stop = input("remove stopwords? ")
+
+if stop == "yes":
+    stopset = set(stopwords.words(input('language: ')))
+    for line in sample:
+        for word in line:
+            if word in stopset:
+                line.remove(word)
+        
 
 wordbank = sim.create_wordbank(sample)
 
@@ -26,6 +35,14 @@ search = []
 while n < quant:
     search.append(input("what to look for? ").split())
     n += 1
+    
+if stop == "yes":
+    for line in search:
+        for word in line:
+            if word in stopset:
+                line.remove(word)   
+
+print(wordbank)
     
 for query in search:
     vectors = sim.create_vectors(sample, wordbank, query)
