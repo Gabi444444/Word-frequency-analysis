@@ -10,15 +10,15 @@ from nltk.corpus import stopwords
 continues = True
 sample = []
 
-sample_size = int(input("how many samples: "))
+sample_size = int(input("quantos samples: "))
 n = 0
 
 while n < sample_size:
-    sample.append(input("please type a string with no punctuation: ").split())
+    sample.append(input("por favor insira uma string sem pontuação: ").split())
     n += 1
-stop = input("remove stopwords? ")
+stop = input("remover stopwords? ")
 
-if stop == "yes":
+if stop == "sim":
     stopset = set(stopwords.words(input('language: ')))
     for line in sample:
         for word in line:
@@ -36,7 +36,7 @@ while n < quant:
     search.append(input("what to look for? ").split())
     n += 1
     
-if stop == "yes":
+if stop == "sim":
     for line in search:
         for word in line:
             if word in stopset:
@@ -49,3 +49,4 @@ for query in search:
     numbers = sim.get_numbers(vectors[0],vectors[1])
     winner = sim.cosine_similarity(vectors[0],numbers[0],vectors[1],numbers[1],sample)
     print("\n",winner)
+
