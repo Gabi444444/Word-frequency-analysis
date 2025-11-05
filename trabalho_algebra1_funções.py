@@ -91,6 +91,7 @@ def cosine_similarity(vectors,roots,search,ser_root,samples):
             cos = round(summ/(root*ser_root),5)
         except:
             cos = 0
+            print("você colocou só stopwords em um teste que remove stopwords, né?")
         degree = degrees(acos(cos))
         results.append(degree)
     print("\n",results)
@@ -98,7 +99,7 @@ def cosine_similarity(vectors,roots,search,ser_root,samples):
     looks_for = max(abs(90-i) for i in results)
     
     for i,x in enumerate(results):
-        if 90 - x == looks_for:
+        if abs(90 - x) == looks_for:
             if 90-x != 0:
                 winner = " ".join(samples[i])
             else:
@@ -109,3 +110,4 @@ def cosine_similarity(vectors,roots,search,ser_root,samples):
     
 
     
+
