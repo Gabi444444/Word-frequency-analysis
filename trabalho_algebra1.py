@@ -101,7 +101,7 @@ for query in buscas:
     for i in range(3):
         looks_for = max(abs(90-i) for i in results)
         for i,x in enumerate(results):
-            if 90 - x == looks_for:
+            if abs(90 - x) == looks_for:
                 if 90 - x == 0:
                     print("similaridade irrelevante a partir daqui")
                     break
@@ -110,6 +110,7 @@ for query in buscas:
                     results[i] = 90
     
             
+
 
 
 
