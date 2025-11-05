@@ -7,7 +7,7 @@ Created on Sat Oct 25 09:55:03 2025
 
 from math import sqrt, acos, degrees
 
-respostas = open("C:/Users/User/Documents/python stuff/trabalho_algb/respostausar.txt","r")
+respostas = open("respostausar.txt","r")
 
 samples = respostas.read().splitlines()
 wordbank = []
@@ -32,11 +32,12 @@ if custom == "sim":
         n += 1
 
 else:
-    searches = open("C:/Users/User/Documents/python stuff/trabalho_algb/querries_usar.txt","r")
+    searches = open("querries_usar.txt","r")
     queries = searches.read().splitlines()
     buscas = [i.split() for i in queries]
     
 for query in buscas:
+    print("\n",query)
     interest = []
     temp_wordbank = [i for i in wordbank]
     for word in query:
@@ -109,5 +110,6 @@ for query in buscas:
                     results[i] = 90
     
             
+
 
 
