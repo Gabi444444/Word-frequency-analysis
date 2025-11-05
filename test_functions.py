@@ -19,7 +19,7 @@ while n < sample_size:
 stop = input("remover stopwords? ")
 
 if stop == "sim":
-    stopset = set(stopwords.words(input('language: ')))
+    stopset = set(stopwords.words(input('Lingua, em inglês: ')))
     for line in sample:
         for word in line:
             if word in stopset:
@@ -49,4 +49,5 @@ for query in search:
     numbers = sim.get_numbers(vectors[0],vectors[1])
     winner = sim.cosine_similarity(vectors[0],numbers[0],vectors[1],numbers[1],sample)
     print("\n",winner)
+
 
