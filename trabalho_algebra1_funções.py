@@ -78,6 +78,7 @@ def get_numbers(vectors,search):
     ser_root = sqrt(size_ser)
     return roots,ser_root
 
+
 def cosine_similarity(vectors,roots,search,ser_root,samples):
     results = []
     for i,vector in enumerate(vectors):
@@ -86,20 +87,25 @@ def cosine_similarity(vectors,roots,search,ser_root,samples):
         for i,x in enumerate(vector):
             mult = x*search[i]
             summ += mult
-        cos = round(summ/(root*ser_root),5)
+        try:
+            cos = round(summ/(root*ser_root),5)
+        except:
+            cos = 0
         degree = degrees(acos(cos))
         results.append(degree)
-    print(results)
+    print("\n",results)
     
     looks_for = max(abs(90-i) for i in results)
     
     for i,x in enumerate(results):
         if 90 - x == looks_for:
-            if 90 - x != 0:
+            if 90-x != 0:
                 winner = " ".join(samples[i])
             else:
                 winner = "couldn't find a match"
     return winner
  
+ 
     
+
     
