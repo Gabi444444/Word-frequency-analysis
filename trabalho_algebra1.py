@@ -99,15 +99,19 @@ for query in buscas:
     
     
     for i in range(3):
+        stop = False
         looks_for = max(abs(90-i) for i in results)
         for i,x in enumerate(results):
             if abs(90 - x) == looks_for:
                 if 90 - x == 0:
                     print("similaridade irrelevante a partir daqui")
+                    stop = True
                     break
                 else:
                     print("\n",f"{pessoas[i]}:",samples[i],"\nângulo:",x)
                     results[i] = 90
+        if stop:
+            break
     
             
 
