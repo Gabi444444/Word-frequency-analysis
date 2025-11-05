@@ -12,7 +12,7 @@ respostas = open("respostausar.txt","r")
 samples = respostas.read().splitlines()
 wordbank = []
 
-pessoas = ["Flávia","Giuu","Timóteo","Adriane","Elisângela","Kenji","Eu","Gustavo","Ganancioso","Cara do marketing","Artista","Programador","Desinteressado"]
+pessoas = ["Flávia","Giuu","Adriane","Elisângela","Kenji","Eu","Gustavo","Ganancioso","Cara do marketing","Artista","Programador","Desinteressado"]
 
 
 for string in samples:
@@ -110,6 +110,7 @@ for query in buscas:
                     results[i] = 90
     
             
+
 
 
 
