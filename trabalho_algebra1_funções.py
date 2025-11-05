@@ -8,8 +8,8 @@ from math import sqrt, acos, degrees
 from nltk.corpus import stopwords
 
 
-def cleanup(sample):
-    stopset = set(stopwords.words(input("language: ")))
+def cleanup(sample,language):
+    stopset = set(stopwords.words(input(language)))
     episode = sample.read().splitlines()
     while '' in episode:
         episode.remove('')
@@ -110,4 +110,5 @@ def cosine_similarity(vectors,roots,search,ser_root,samples):
     
 
     
+
 
